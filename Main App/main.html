@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/datepicker.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/datepicker.js"></script>
+    <title>Home</title>
+  </head>
+  <body class="bg-indigo-200" onload="db()">
+    <!-- Enter New Voter -->
+    <div class="m-5 flex flex-wrap">
+      <a
+        href="newVoter.html"
+        class="px-6 py-3 text-white no-underline bg-blue-500 rounded hover:bg-blue-600 hover:no-underline hover:text-white"
+        >Register New Voter</a
+      >
+    </div>
+    <div
+      class="bg-blue-100 m-2 border border-blue-900 shadow-2xl rounded rounded-lg"
+    >
+      <div class="m-2 bg-blue-300 m-2 p-2 rounded rounded-lg">
+        <div
+          class="uppercase text-2xl font-extrabold text-blue-900 drop-shadow-lg"
+        >
+          Filteration
+        </div>
+
+        <div class="flex">
+          <div class="mx-2">
+            <!-- province -->
+            <div class="w-auto px-3 md:mb-0">
+              <label
+                for="province"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Province</label
+              >
+              <select
+                onchange="pro()"
+                id="province"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option value="" disabled selected>Select Province</option>
+              </select>
+            </div>
+          </div>
+          <div class="mx-2">
+            <!-- city -->
+            <label
+              for="city"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >City</label
+            >
+            <select
+              id="city"
+              onchange="cit()"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="" disabled selected>Select City</option>
+            </select>
+          </div>
+          <div class="mx-2">
+            <!-- district -->
+            <div class="w-auto px-3 md:mb-0">
+              <label
+                for="district"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >District</label
+              >
+              <select
+                onchange="dis()"
+                id="district"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option value="" disabled selected>Select District</option>
+              </select>
+            </div>
+          </div>
+          <div class="mx-2">
+            <!-- uc -->
+            <label
+              for="uc"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Union Council</label
+            >
+            <select
+              onchange="unc()"
+              id="uc"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="" disabled selected>Select Union Council</option>
+            </select>
+          </div>
+          <div class="mx-2">
+            <!-- ward -->
+            <div class="w-auto px-3 mb-6 md:mb-0">
+              <label
+                for="ward"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Ward</label
+              >
+              <select
+                onchange="wrd()"
+                id="ward"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option value="" disabled selected>Select Ward</option>
+              </select>
+            </div>
+          </div>
+          <div class="mx-2">
+            <!-- gender -->
+            <label
+              for="gender"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Gender</label
+            >
+            <select
+              onchange="gen()"
+              id="gender"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="" disabled selected>Select Gender</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <table
+            class="border-separate border border-slate-400 my-8 items-center w-full"
+          >
+            <thead class="bg-blue-900 text-white px-2">
+              <tr>
+                <th>Name</th>
+                <th class="px-2">Father name</th>
+                <th>CNIC</th>
+                <th>Address</th>
+                <th>Phone #</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Province</th>
+                <th>City</th>
+                <th>District</th>
+                <th class="px-2">Union Council</th>
+                <th class="px-2">Ward</th>
+                <th class="px-2">Gender</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-center" id="users"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="templates.js"></script>
+    <script src="filter.js"></script>
+  </body>
+</html>
